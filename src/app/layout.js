@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Chess App - Lichess Integration",
+  title: "Chess App",
   description: "A chess application with Lichess API integration",
 };
 

@@ -38,11 +38,11 @@ export default function ProfilePage() {
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-8">
         <BackButton />
-        <h1 className="text-4xl font-bold mb-8">Player Profile</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8">Player Profile</h1>
         
-        <div className="bg-gray-800 rounded-lg p-6 mb-8">
-          <h2 className="text-2xl font-semibold mb-4">Search Player</h2>
-          <div className="flex gap-4">
+        <div className="bg-gray-800 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4">Search Player</h2>
+          <div className="flex flex-col sm:flex-row gap-4">
             <input
               type="text"
               placeholder="Enter Lichess username..."
@@ -55,7 +55,7 @@ export default function ProfilePage() {
             <button 
               onClick={handleSearch}
               disabled={loading || !username.trim()}
-              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded transition-colors"
+              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded transition-colors w-full sm:w-auto"
             >
               {loading ? 'Searching...' : 'Search'}
             </button>
@@ -71,30 +71,30 @@ export default function ProfilePage() {
         {userProfile && (
           <div className="space-y-6">
             {/* User Basic Info */}
-            <div className="bg-gray-800 rounded-lg p-6">
-              <div className="flex items-start gap-6 mb-6">
+            <div className="bg-gray-800 rounded-lg p-4 sm:p-6">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-6">
                 {/* Profile Picture */}
                 <div className="flex-shrink-0">
                   <img
                     src={`https://lichess1.org/user/${userProfile.username}/avatar/120`}
                     alt={`${userProfile.username}'s avatar`}
-                    className="w-24 h-24 rounded-full bg-gray-700 border-2 border-gray-600"
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gray-700 border-2 border-gray-600"
                     onError={(e) => {
                       e.target.style.display = 'none'
                       e.target.nextElementSibling.style.display = 'flex'
                     }}
                   />
                   <div 
-                    className="w-24 h-24 rounded-full bg-gray-700 border-2 border-gray-600 hidden items-center justify-center text-2xl font-bold text-gray-400"
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gray-700 border-2 border-gray-600 hidden items-center justify-center text-xl sm:text-2xl font-bold text-gray-400"
                   >
                     {userProfile.username.charAt(0).toUpperCase()}
                   </div>
                 </div>
                 
                 {/* User Info */}
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-3">
-                    <h3 className="text-3xl font-bold">{userProfile.username}</h3>
+                <div className="flex-1 text-center sm:text-left">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-3">
+                    <h3 className="text-2xl sm:text-3xl font-bold break-words">{userProfile.username}</h3>
                     {userProfile.title && (
                       <span className="px-3 py-1 bg-yellow-600 text-black text-sm font-bold rounded">
                         {userProfile.title}
@@ -113,13 +113,13 @@ export default function ProfilePage() {
                   </div>
                   
                   {userProfile.profile?.bio && (
-                    <p className="text-gray-300 mb-4 text-lg">{userProfile.profile.bio}</p>
+                    <p className="text-gray-300 mb-4 text-base sm:text-lg break-words">{userProfile.profile.bio}</p>
                   )}
                 </div>
               </div>
               
               {/* User Stats Grid */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                 <div className="bg-gray-700 rounded-lg p-4 text-center">
                   <div className="text-2xl font-bold text-blue-400">{userProfile.count?.all || 0}</div>
                   <div className="text-sm text-gray-400">Total Games</div>

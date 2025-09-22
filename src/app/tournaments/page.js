@@ -41,12 +41,12 @@ export default function TournamentsPage() {
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-8">
         <BackButton />
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-bold">Upcoming Tournaments</h1>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
+          <h1 className="text-3xl sm:text-4xl font-bold">Upcoming Tournaments</h1>
           <button
             onClick={handleRefresh}
             disabled={loading}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-lg transition-colors w-full sm:w-auto"
           >
             <svg 
               className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`}
@@ -79,7 +79,7 @@ export default function TournamentsPage() {
         ) : (
           <>
             {tournaments.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {tournaments.map((tournament) => {
                   // Format duration
                   const formatDuration = (minutes) => {
@@ -98,13 +98,13 @@ export default function TournamentsPage() {
                   }
 
                   return (
-                    <div key={tournament.id} className="bg-gray-800 rounded-lg p-6 hover:bg-gray-750 transition-colors border border-gray-700">
+                    <div key={tournament.id} className="bg-gray-800 rounded-lg p-4 sm:p-6 hover:bg-gray-750 transition-colors border border-gray-700">
                       <div className="mb-4">
-                        <h3 className="text-lg font-semibold mb-2 line-clamp-2">
+                        <h3 className="text-base sm:text-lg font-semibold mb-2 break-words">
                           {tournament.fullName || tournament.name}
                         </h3>
                         {tournament.createdBy && (
-                          <p className="text-sm text-gray-400">
+                          <p className="text-xs sm:text-sm text-gray-400 truncate">
                             Created by: {tournament.createdBy}
                           </p>
                         )}

@@ -48,16 +48,16 @@ export default function LeaderboardsPage() {
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-8">
         <BackButton />
-        <h1 className="text-4xl font-bold mb-8">Leaderboards</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8">Leaderboards</h1>
         
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Select Time Control</h2>
-          <div className="flex gap-2 flex-wrap">
+        <div className="mb-6 sm:mb-8">
+          <h2 className="text-lg sm:text-xl font-semibold mb-4">Select Time Control</h2>
+          <div className="grid grid-cols-2 sm:flex gap-2 flex-wrap">
             {variants.map((variant) => (
               <button
                 key={variant.key}
                 onClick={() => handleVariantChange(variant.key)}
-                className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+                className={`px-4 sm:px-6 py-3 rounded-lg font-medium transition-colors text-sm sm:text-base ${
                   selectedVariant === variant.key
                     ? 'bg-blue-600 text-white'
                     : 'bg-gray-800 hover:bg-gray-700 text-gray-300'
@@ -69,11 +69,11 @@ export default function LeaderboardsPage() {
           </div>
         </div>
 
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-center sm:justify-end mb-4">
           <button
             onClick={handleRefresh}
             disabled={loading}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-lg transition-colors w-full sm:w-auto"
           >
             <svg 
               className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`}
