@@ -125,21 +125,21 @@ export default function ProfilePage() {
                   <div className="text-sm text-gray-400">Total Games</div>
                 </div>
                 
-                {userProfile.count?.win && (
+                {userProfile.count?.win !== undefined && (
                   <div className="bg-gray-700 rounded-lg p-4 text-center">
                     <div className="text-2xl font-bold text-green-400">{userProfile.count.win}</div>
                     <div className="text-sm text-gray-400">Games Won</div>
                   </div>
                 )}
                 
-                {userProfile.count?.draw && (
+                {userProfile.count?.draw !== undefined && (
                   <div className="bg-gray-700 rounded-lg p-4 text-center">
                     <div className="text-2xl font-bold text-yellow-400">{userProfile.count.draw}</div>
                     <div className="text-sm text-gray-400">Draws</div>
                   </div>
                 )}
                 
-                {userProfile.count?.loss && (
+                {userProfile.count?.loss !== undefined && (
                   <div className="bg-gray-700 rounded-lg p-4 text-center">
                     <div className="text-2xl font-bold text-red-400">{userProfile.count.loss}</div>
                     <div className="text-sm text-gray-400">Games Lost</div>
