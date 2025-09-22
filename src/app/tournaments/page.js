@@ -199,11 +199,10 @@ export default function TournamentsPage() {
           </>
         )}
 
-        {filteredTournaments.length > 0 && (
+        {tournaments.length > 0 && (
           <div className="mt-8 text-center">
             <p className="text-gray-400">
-              Showing {filteredTournaments.length} tournament{filteredTournaments.length !== 1 ? 's' : ''} 
-              {filter !== 'all' && ` (${filter})`}
+              Showing {tournaments.length} upcoming tournament{tournaments.length !== 1 ? 's' : ''}
             </p>
           </div>
         )}
